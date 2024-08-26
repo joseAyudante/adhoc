@@ -1,0 +1,19 @@
+<script>
+window.dataLayer = window.dataLayer || [];
+
+// Tested-OK
+// Push user data if available
+{{#if customer }}
+    dataLayer.push({
+        'event': 'user_data',
+        'user_id': '{{customer.id}}',
+        'user_properties': {
+            'customer_shipping_country': '{{customer.shipping_address.country}}',
+            'customer_shipping_state': '{{customer.shipping_address.state}}',
+            'customer_shipping_city': '{{customer.shipping_address.city}}',
+            'customer_shipping_address_type': '{{customer.shipping_address.destination}}'
+        }
+    });
+{{/if}}
+
+</script>
